@@ -29,7 +29,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     };
 
     try {
-      const result = await db.collection("emailsubscriber").insertOne(newSubscriber);
+      const result = await db.collection("mailinglist").insertOne(newSubscriber);
       newSubscriber = { ...newSubscriber, id: result.insertedId };
     } catch (error) {
       client.close();
@@ -46,7 +46,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
   if (req.method === "GET") {
     try {
-      const data = await db.collection("emailsubscriber").find().toArray();
+      const data = await db.collection("mailinglist").find().toArray();
       res.status(201).json({ data });
     } catch (error) {
       client.close();
