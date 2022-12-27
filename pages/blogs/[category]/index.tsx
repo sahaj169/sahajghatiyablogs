@@ -31,3 +31,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
     revalidate: 6000,
   };
 };
+
+export function getStaticPaths() {
+  return {
+    paths: ['/blogs/lifestyle','/blogs/family','/blogs/food'],
+    fallback: "blocking",
+  };
+}
+
