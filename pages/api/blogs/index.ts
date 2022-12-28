@@ -25,17 +25,14 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       !heading ||
       heading.trim() === "" ||
       !category ||
-      category.trim() === "lifestyle" ||
-      category.trim() === "family" ||
-      category.trim() === "food" ||
+      (category.trim() !== "lifestyle" &&
+        category.trim() !== "family" &&
+        category.trim() !== "food") ||
       !content ||
       content.trim() === "" ||
-      !minread ||
-      minread.trim() === "" ||
-      !views ||
-      views.trim() === "" ||
-      !likes ||
-      likes.trim() === "" ||
+      isNaN(minread) ||
+      isNaN(views) ||
+      isNaN(likes) ||
       !image ||
       image.trim() === "" ||
       !blogslug ||
@@ -78,7 +75,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       let sortedData = data.sort((p1, p2) =>
         p1.createdAt < p2.createdAt ? 1 : p1.createdAt > p2.createdAt ? -1 : 0
       );
-      res.status(201).json({ data:sortedData });
+      res.status(201).json({ data: sortedData });
     } catch (error) {
       client.close();
       res.status(500).json({ message: "Failed Getting All Blogs!" });
