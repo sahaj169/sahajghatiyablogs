@@ -15,11 +15,8 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       heading,
       category,
       minread,
-      views,
-      likes,
       image,
       content,
-      blogslug,
     } = req.body;
     if (
       !heading ||
@@ -31,12 +28,8 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       !content ||
       content.trim() === "" ||
       isNaN(minread) ||
-      isNaN(views) ||
-      isNaN(likes) ||
       !image ||
-      image.trim() === "" ||
-      !blogslug ||
-      blogslug.trim() === ""
+      image.trim() === ""
     ) {
       res.status(422).json({ message: "Invalid input." });
       return;
@@ -46,11 +39,11 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       heading,
       category,
       minread,
-      views,
-      likes,
+      views:0,
+      likes:0,
       image,
       content,
-      blogslug,
+      blogslug : heading.toLowerCase().replace(/ /g, "-"),
       createdAt: new Date().getTime() / 1000,
     };
 

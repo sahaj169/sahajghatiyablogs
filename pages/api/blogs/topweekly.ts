@@ -13,18 +13,16 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   const db = client.db();
 
   if (req.method === "POST") {
-    const { heading, category, image, blogslug } = req.body;
+    const { heading, category, image} = req.body;
     if (
       !heading ||
       heading.trim() === "" ||
       !category ||
-      category.trim() === "lifestyle" ||
-      category.trim() === "family" ||
-      category.trim() === "food" ||
+      (category.trim() !== "lifestyle" &&
+        category.trim() !== "family" &&
+        category.trim() !== "food") ||
       !image ||
-      image.trim() === "" ||
-      !blogslug ||
-      blogslug.trim() === ""
+      image.trim() === ""
     ) {
       res.status(422).json({ message: "Invalid input." });
       return;
@@ -33,8 +31,8 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     var newTopWeeklyBlog: Object = {
       heading,
       category,
-      blogslug,
       image,
+      blogslug : heading.toLowerCase().replace(/ /g, "-"),
       createdAt: new Date().getTime() / 1000,
     };
 
