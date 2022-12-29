@@ -16,6 +16,7 @@ import MostLikedBlogs from "../components/home/mostlikedblogs/mostlikedblogs";
 import PositiveThoughts from "../components/home/positivethoughts/positivethoughts";
 
 export default function Home(props: any) {
+  console.log(props)
   return (
     <Fragment>
       <Head>
@@ -23,7 +24,7 @@ export default function Home(props: any) {
       </Head>
       {/* <TopWeeklyBlogs topweeklyblogs={props.topWeeklyBlogs} /> */}
       <Categories />
-      <LatestBlogs />
+      <LatestBlogs latestblogs={props.recentBlogs} />
       <MostLikedBlogs />
       <PositiveThoughts />
     </Fragment>
