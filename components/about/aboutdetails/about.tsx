@@ -1,7 +1,7 @@
 import React, { Fragment, useRef } from "react";
 import Heading from "../../ui/heading/heading";
 import styles from "./about.module.scss";
-import Sahaj from "../../../public/assets/Sahaj.jpg";
+import Sahaj from "./Sahaj.jpg";
 import Image from "next/image";
 import { toast } from "react-toastify";
 const About = () => {
@@ -63,11 +63,12 @@ const About = () => {
           <div className={styles.my_details}>
             <h2>Hi! I&apos;m Sahaj Ghatiya</h2>
             <p>
-              I&apos;m a paragraph. Click here to add your own text and edit me. It&apos;s
-              easy. Just click “Edit Text” or double click me to add your own
-              content and make changes to the font. Feel free to drag and drop
-              me anywhere you like on your page. I&apos;m a great place for you to
-              tell a story and let your users know a little more about you.
+              I&apos;m a paragraph. Click here to add your own text and edit me.
+              It&apos;s easy. Just click “Edit Text” or double click me to add
+              your own content and make changes to the font. Feel free to drag
+              and drop me anywhere you like on your page. I&apos;m a great place
+              for you to tell a story and let your users know a little more
+              about you.
             </p>
             <p>
               This is a great space to write long text about your company and
@@ -87,7 +88,11 @@ const About = () => {
                   <input type="text" placeholder="Name" ref={NameRef} />
                   <input type="email" placeholder="Email" ref={EmailRef} />
                 </div>
-                <textarea placeholder="Message" ref={MessageRef} rows={10} ></textarea>
+                <textarea
+                  placeholder="Message"
+                  ref={MessageRef}
+                  rows={10}
+                ></textarea>
                 <button
                   type="submit"
                   onClick={(e) => {
