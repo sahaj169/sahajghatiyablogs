@@ -1,13 +1,13 @@
 import React, { Fragment } from "react";
-import styles from "./mostlikedblogs.module.scss";
+import styles from "./allblogs.module.scss";
 import Heading from "../../ui/heading/heading";
 import Blogcard from "../../ui/blogcard/blogcard";
-const MostLikedblogs = ({ mostlikedblogs }: any) => {
+const Latestblogs = ({ allblogs }: any) => {
   return (
     <Fragment>
-      <Heading>Most Liked Blogs</Heading>
+      <Heading>Sahaj Ghatiya Blogs</Heading>
       <div className={styles.latestblogs}>
-        {mostlikedblogs?.slice(0, 3).map((blog: any) => {
+        {allblogs?.map((blog: any) => {
           return (
             <Blogcard
               key={blog._id}
@@ -28,4 +28,4 @@ const MostLikedblogs = ({ mostlikedblogs }: any) => {
   );
 };
 
-export default MostLikedblogs;
+export default Latestblogs;

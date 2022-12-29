@@ -1,0 +1,21 @@
+.imagediv {
+  display: flex;
+  justify-content: flex-end;
+  align-items: bottom;
+  flex-direction: column;
+  height: 90vh;
+  width: 100%;
+  background-color: #f5f5f5;
+  position: relative;
+  overflow: hidden;
+  font-family: Inter;
+
+  .content {
+    z-index: 100;
+    margin: 3rem;
+    p {
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+    }
+  }
+}

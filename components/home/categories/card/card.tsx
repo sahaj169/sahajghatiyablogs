@@ -12,9 +12,9 @@ const Card = ({
   cardColor: string;
 }) => {
   return (
-    <Link href={`/blogs/${category}`} passHref>
+    <Link href={`/blogs/${category.toLowerCase()}`} passHref>
       <div className={styles.card}>
-        <Image src={image} width={300} height={300} alt={category} />
+        <Image src={image} width={300} height={300} alt={category} priority />
         <div
           className={styles.card_details}
           style={{ backgroundColor: cardColor }}

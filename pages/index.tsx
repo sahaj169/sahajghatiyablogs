@@ -16,17 +16,16 @@ import MostLikedBlogs from "../components/home/mostlikedblogs/mostlikedblogs";
 import PositiveThoughts from "../components/home/positivethoughts/positivethoughts";
 
 export default function Home(props: any) {
-  console.log(props)
   return (
     <Fragment>
       <Head>
         <title>Sahaj Ghatiya Blogs</title>
       </Head>
-      {/* <TopWeeklyBlogs topweeklyblogs={props.topWeeklyBlogs} /> */}
+      <TopWeeklyBlogs topweeklyblogs={props.topWeeklyBlogs} />
       <Categories />
       <LatestBlogs latestblogs={props.recentBlogs} />
-      <MostLikedBlogs />
-      <PositiveThoughts />
+      <MostLikedBlogs mostlikedblogs={props.blogsByLikes}/>
+      <PositiveThoughts positivethoughts = {props.positiveThoughts} />
     </Fragment>
   );
 }

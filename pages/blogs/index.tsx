@@ -3,15 +3,14 @@ import Head from "next/head";
 import styles from "../../styles/Home.module.scss";
 import { GetStaticProps } from "next";
 import { GetAllBlogs } from "../../utils/api";
-export default function AllBlogs(props:any) {
-  ;
+import AllBlogs from "../../components/blogs/allblogs/allblogs";
+export default function Blogs(props: any) {
   return (
     <Fragment>
       <Head>
         <title>Sahaj Blogs | Blogs</title>
       </Head>
-
-      <div className={styles.container}>List of All blogs</div>
+      <AllBlogs allblogs={props.allBlogs} />
     </Fragment>
   );
 }

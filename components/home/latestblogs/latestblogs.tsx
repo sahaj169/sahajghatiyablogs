@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 import styles from "./latestblogs.module.scss";
 import Heading from "../../ui/heading/heading";
 import Blogcard from "../../ui/blogcard/blogcard";
-import Link from "next/link";
 const Latestblogs = ({ latestblogs }: any) => {
   return (
     <Fragment>
@@ -10,12 +9,18 @@ const Latestblogs = ({ latestblogs }: any) => {
       <div className={styles.latestblogs}>
         {latestblogs?.slice(0, 3).map((blog: any) => {
           return (
-            <Link
-              href={`/blogs/${blog.category}/${blog.blogslug}`}
+            <Blogcard
               key={blog._id}
-            >
-              <Blogcard image={blog.image} heading={blog.heading} views={blog.views} likes={blog.likes} timestamp={blog.timestamp} minread={blog.minread} content={blog.content}/>
-            </Link>
+              image={blog.image}
+              category={blog.category}
+              blogslug={blog.blogslug}
+              heading={blog.heading}
+              views={blog.views}
+              likes={blog.likes}
+              minread={blog.minread}
+              content={blog.content}
+              createdAt={blog.createdAt}
+            />
           );
         })}
       </div>
