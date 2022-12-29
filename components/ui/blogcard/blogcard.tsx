@@ -43,10 +43,10 @@ const Blogcard = ({
         <Link href={`/blogs/${category}/${blogslug}`}>
           <div className={styles.blogcontent}>
             <h1>{heading}</h1>
-            <p
+            <div
               dangerouslySetInnerHTML={{ __html: content }}
               className={styles.content}
-            ></p>
+            ></div>
           </div>
         </Link>
 

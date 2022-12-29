@@ -1,0 +1,117 @@
+.card {
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10rem;
+  margin-right: 10rem;
+
+  .card_image {
+    width: 60vw;
+    height: min-content;
+    object-fit: contain;
+    border-radius: 0.5rem;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 0.5rem;
+    }
+  }
+
+  .card_details {
+    padding: 1rem 3rem;
+    text-align: center;
+    width: 60%;
+    margin-top: -5rem;
+    background-color: #eaf2f5;
+    font-family: Georgia;
+
+    .my_details {
+      p {
+        text-align: center;
+        margin-top: 2rem;
+        font-family: Inter;
+      }
+    }
+
+    .contactdiv {
+      .contactheading {
+        font-family: Inter;
+        font-size: 1.5rem;
+        font-weight: 300;
+        margin-top: 2rem;
+      }
+
+      .form {
+        display: flex;
+        flex-direction: column;
+        font-family: Inter;
+        justify-content: center;
+        .nameemail {
+          display: flex;
+          justify-content: space-between;
+          input {
+            font-family: Inter;
+            width: 50%;
+            height: 100%;
+            padding: 0.5rem;
+            margin: 1rem;
+            outline: none;
+            font-size: 1rem;
+            font-weight: 400;
+            background-color: #eaf2f5;
+            border: none;
+            border-bottom: 1px solid #2f2e2e;
+
+            &::placeholder {
+              color: #2f2e2e;
+            }
+
+            &:hover {
+              border-bottom: 1px solid #2f2e2e;
+            }
+
+            &:active {
+              border-bottom: 1px solid #2f2e2e;
+            }
+          }
+        }
+
+        textarea {
+          font-family: Inter;
+          padding: 0.5rem;
+          margin: 1rem;
+          outline: none;
+          border: none;
+          border-bottom: 1px solid #2f2e2e;
+          font-size: 1rem;
+          font-weight: 400;
+          background-color: #eaf2f5;
+          &::placeholder {
+            color: #2f2e2e;
+          }
+        }
+
+        button {
+          align-self: center;
+          width: 40%;
+          margin-top: 2rem;
+          padding: 0.5rem;
+          font-size: 1rem;
+          font-weight: 300;
+          margin-bottom: 1rem;
+          background-color: #2f2e2e;
+          color: white;
+          cursor: pointer;
+
+          &:hover {
+            background-color: #2f2e2e95;
+          }
+        }
+      }
+    }
+  }
+}
