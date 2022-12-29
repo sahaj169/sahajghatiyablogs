@@ -4,6 +4,7 @@ import styles from "../../styles/Home.module.scss";
 import { GetStaticProps } from "next";
 import { GetAllBlogs } from "../../utils/api";
 export default function AllBlogs(props:any) {
+  ;
   return (
     <Fragment>
       <Head>

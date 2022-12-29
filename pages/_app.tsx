@@ -4,6 +4,8 @@ import Layout from "../components/layout/layout";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Head from "next/head";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <Layout>
@@ -15,7 +17,9 @@ export default function App({ Component, pageProps }: AppProps) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Component {...pageProps} />
+      <div style={{ paddingTop: "4.5rem", minHeight: "100vh" }}>
+        <Component {...pageProps} />
+      </div>
       <ToastContainer
         position="top-center"
         autoClose={3000}

@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { GetServerSideProps } from "next";
 import { GetBlogData, GetRecentBlogs } from "../../../utils/api";
 export default function Blog(props: any) {
+  ;
   const router = useRouter();
   const category = router.query.category;
   const blogslug = router.query.blogslug;

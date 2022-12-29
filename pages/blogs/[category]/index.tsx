@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { GetStaticProps } from "next";
 import { GetBlogsByCategory } from "../../../utils/api";
 export default function Category(props:any) {
+  ;
   const router = useRouter();
   const category = router.query.category;
 

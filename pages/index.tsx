@@ -8,20 +8,24 @@ import {
   GetRecentBlogs,
   GetPositiveThoughts,
 } from "../utils/api";
+
+import TopWeeklyBlogs from "../components/home/topweeklyblogs/topweeklyblogs";
+import Categories from "../components/home/categories/categories";
+import LatestBlogs from "../components/home/latestblogs/latestblogs";
+import MostLikedBlogs from "../components/home/mostlikedblogs/mostlikedblogs";
+import PositiveThoughts from "../components/home/positivethoughts/positivethoughts";
+
 export default function Home(props: any) {
   return (
     <Fragment>
       <Head>
         <title>Sahaj Ghatiya Blogs</title>
       </Head>
-
-      <div className={styles.container}>
-        Top weekly blogs carousel <br />
-        Category Section <br />
-        Recent / Latest Blogs <br />
-        Most Liked Blogs <br />
-        Positive Thoughts Image Carousel <br />
-      </div>
+      {/* <TopWeeklyBlogs topweeklyblogs={props.topWeeklyBlogs} /> */}
+      <Categories />
+      <LatestBlogs />
+      <MostLikedBlogs />
+      <PositiveThoughts />
     </Fragment>
   );
 }
@@ -41,4 +45,3 @@ export const getStaticProps: GetStaticProps = async () => {
     revalidate: 600,
   };
 };
-
