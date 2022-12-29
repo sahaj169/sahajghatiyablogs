@@ -6,11 +6,10 @@ import "react-multi-carousel/lib/styles.css";
 import Image from "next/image";
 const PositiveThoughts = ({ positivethoughts }: any) => {
   const InsideCarousel = positivethoughts?.map((positiveThought: any) => (
-    <div className={styles.imagediv}>
+    <div className={styles.imagediv} key={positiveThought._id}>
       <Image
         src={positiveThought.image}
         alt={positiveThought.title}
-        key={positiveThought._id}
         fill
         sizes="100%"
       />

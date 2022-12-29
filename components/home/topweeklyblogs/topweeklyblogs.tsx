@@ -65,14 +65,9 @@ const PositiveThoughts = ({ topweeklyblogs }: any) => {
           <Link
             href={`/blogs/${blog.category}/${blog.blogslug}`}
             className={styles.imagediv}
+            key={blog._id}
           >
-            <Image
-              src={blog.image}
-              alt={blog.heading}
-              key={blog._id}
-              fill
-              sizes="100%"
-            />
+            <Image src={blog.image} alt={blog.heading} fill sizes="100%" />
             <div className={styles.content}>
               <p>A {blog.category} Blog</p>
               <h1>{blog.heading}</h1>
