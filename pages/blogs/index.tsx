@@ -17,7 +17,6 @@ export default function Blogs(props: any) {
 
 export const getStaticProps: GetStaticProps = async () => {
   const allBlogs = await GetAllBlogs();
-
   return {
     props: {
       allBlogs,
