@@ -31,14 +31,14 @@ const Blog = ({ blogdata }: any) => {
               <div className={styles.stat}>
                 <div className={styles.icon}>
                   <IoStatsChart />
-                  <p>Views</p>
+                  <span>Views</span>
                 </div>
                 <span>{blogdata.views}</span>
               </div>
               <div className={styles.stat}>
                 <div className={styles.icon}>
                   <BsSuitHeart />
-                  <p>Likes</p>
+                  <span>Likes</span>
                 </div>
                 <span>{blogdata.likes}</span>
               </div>

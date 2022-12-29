@@ -19,7 +19,16 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
         .collection("blogs")
         .find({ category: category, blogslug: blogslug })
         .toArray();
-      res.status(201).json({ data });
+
+      const newviewcount = data[0].views + 1;
+      const result = await db
+        .collection("blogs")
+        .updateOne(
+          { category: category, blogslug: blogslug },
+          { $set: { views: newviewcount } }
+        );
+
+      res.status(201).json({ data  });
     } catch (error) {
       client.close();
       res
