@@ -115,4 +115,53 @@
       }
     }
   }
+
+  @media screen and (max-width: 768px) {
+    .blogcard {
+      flex-direction: column;
+      .blogimage {
+        width: 100%;
+        height: 50vh;
+        .imgdiv {
+          height: 100%;
+          width: 100%;
+        }
+      }
+      .blogdetails {
+        width: 100%;
+        padding-left: 0;
+        .blogcontent {
+          h1 {
+            font-size: xx-large;
+          }
+          p {
+            font-size: large;
+          }
+        }
+        .timeandshare {
+          .time {
+            span {
+              font-size: x-small;
+            }
+          }
+          .share {
+            font-size: large;
+          }
+        }
+        .stats {
+          .stat {
+            span {
+              font-size: xx-large;
+            }
+            .icon {
+              font-size: x-large;
+              p {
+                font-size: small;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

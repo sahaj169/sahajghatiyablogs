@@ -115,3 +115,39 @@
     }
   }
 }
+@media screen and (max-width: 1024px) {
+  .card {
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2rem;
+    margin-right: 2rem;
+
+    .card_image {
+      width: 75vw;
+    }
+
+    .card_details {
+      width: 75%;
+      margin-top: -3rem;
+      padding: 1rem;
+    }
+  }
+}
+@media screen and (max-width: 480px) {
+  .card {
+    margin: 2rem;
+
+    .card_image {
+      width: 90vw;
+    }
+
+    .card_details {
+      width: 90%;
+      margin-top: -3rem;
+      padding: 1rem;
+    }
+  }
+}

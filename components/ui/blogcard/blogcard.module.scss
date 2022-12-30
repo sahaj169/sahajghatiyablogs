@@ -1,7 +1,7 @@
 .blogcard {
   display: flex;
-  min-width: 70vw;
-  max-width: 70vw;
+  min-width: 80vw;
+  max-width: 80vw;
   margin: 2rem;
   font-family: Inter;
   background-color: rgba(255, 229, 206, 0.4);
@@ -24,7 +24,7 @@
       height: 25vw;
       width: 100%;
       overflow: hidden;
-      position:relative;
+      position: relative;
       img {
         object-fit: cover;
       }
@@ -69,13 +69,12 @@
         display: flex;
 
         .heart {
-          color: #E84A43;
+          color: #e84a43;
           cursor: pointer;
 
-          span{
-            fill:#E84A43;
+          span {
+            fill: #e84a43;
           }
-          
         }
 
         .stat {
@@ -84,6 +83,129 @@
 
           span {
             margin-left: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 1350px) {
+    min-width: 70vw;
+    max-width: 70vw;
+  }
+
+  @media screen and (max-width: 1350px) and (min-width: 600px) {
+    min-width: 70vw;
+    max-width: 70vw;
+    flex-direction: column;
+    .blogimage {
+      width: 100%;
+      height: 40vh;
+      .imgdiv {
+        height: 100%;
+      }
+    }
+    .blogdetails {
+      width: 100%;
+      padding: 1rem;
+      .blogcontent {
+        h1 {
+          font-size: 1.5rem;
+        }
+      }
+      .blogstats {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .time {
+          span {
+            font-size: x-small;
+          }
+        }
+        .stats {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .heart {
+            color: #e84a43;
+            cursor: pointer;
+
+            span {
+              fill: #e84a43;
+            }
+          }
+
+          .stat {
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            span {
+              margin-left: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    min-width: 70vw;
+    max-width: 70vw;
+    flex-direction: column;
+    .blogimage {
+      width: 100%;
+      height: 40vh;
+      .imgdiv {
+        height: 100%;
+      }
+    }
+    .blogdetails {
+      width: 100%;
+      padding: 1rem;
+      .blogcontent {
+        h1 {
+          font-size: 1.5rem;
+        }
+      }
+      .blogstats {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .time {
+          span {
+            font-size: xx-small;
+          }
+        }
+        .stats {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .heart {
+            color: #e84a43;
+            cursor: pointer;
+
+            span {
+              fill: #e84a43;
+            }
+          }
+
+          .stat {
+            margin-right: 1rem;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            span {
+              margin-left: 0.2rem;
+            }
           }
         }
       }

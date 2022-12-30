@@ -4,12 +4,113 @@
   color: #2f2e2e;
   font-family: Inter;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   position: fixed;
-  width:100vw;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+  width: 100vw;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   z-index: 100;
+
+  @media screen and (max-width: 962px) {
+    justify-content: space-between;
+  }
+
+  .navbar_toggle {
+    display: none;
+    @media screen and (max-width: 962px) {
+      display: block;
+      font-size: 1.5rem;
+      margin-right: 1rem;
+      cursor: pointer;
+    }
+  }
+
+  .mobile_navbar {
+    position: absolute;
+    display: none;
+    @media screen and (max-width: 962px) {
+      display: block;
+      font-size: 1.5rem;
+      right: 0;
+      background-color: #ffe5ce;
+      width: 100vw;
+      height: 100vh;
+      z-index: 100;
+      top: 0;
+      left: 0;
+      padding: 1rem;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease-in-out;
+      &.active {
+        transform: translateX(0);
+      }
+      &.inactive {
+        transform: translateX(100%);
+      }
+      
+      .mobile_navbar_close {
+        font-size: 1.5rem;
+        cursor: pointer;
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+      }
+      .mobile_navbar_links {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        ul {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: left;
+
+          li {
+            margin: 1rem 0;
+            font-size: 1.5rem;
+            font-weight: 400;
+            text-transform: capitalize;
+            letter-spacing: 0.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            &:hover {
+              color: #ff8a00;
+            }
+          }
+        }
+        .mobile_navbar_sociallinks {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          .mobile_navbar_socialicon {
+            margin: 1rem;
+            font-size: 2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            a {
+              margin: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    @media screen and (max-width: 962px) {
+      display: none;
+    }
+  }
 
   .navigation {
     display: flex;
