@@ -51,7 +51,7 @@ const PositiveThoughts = ({ positivethoughts }: any) => {
               max: 464,
               min: 0,
             },
-            items: 2,
+            items: 1,
             partialVisibilityGutter: 30,
           },
           tablet: {
@@ -59,7 +59,7 @@ const PositiveThoughts = ({ positivethoughts }: any) => {
               max: 1024,
               min: 464,
             },
-            items: 3,
+            items: 2,
             partialVisibilityGutter: 30,
           },
         }}

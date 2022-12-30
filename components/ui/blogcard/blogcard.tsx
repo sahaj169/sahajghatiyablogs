@@ -34,82 +34,84 @@ const Blogcard = ({
     return time;
   };
 
-  const [liked, setLiked] = useState<boolean>(false);
+  // const [liked, setLiked] = useState<boolean>(false);
+  // const [newlikes, setNewlikes] = useState<number>(likes);
 
-  const checkliked = (blogslug: string) => {
-    const cookies = parseCookies();
-    const likedblogs = cookies.likedblogs;
-    if (likedblogs) {
-      const likedblogsarray = likedblogs.split(",");
-      if (likedblogsarray.includes(blogslug)) {
-        return true;
-      }
-    }
-    return false;
-  };
+  // const checkliked = (blogslug: string) => {
+  //   const cookies = parseCookies();
+  //   const likedblogs = cookies.likedblogs;
+  //   if (likedblogs) {
+  //     const likedblogsarray = likedblogs.split(",");
+  //     if (likedblogsarray.includes(blogslug)) {
+  //       return true;
+  //     }
+  //   }
+  //   return false;
+  // };
 
-  useEffect(() => {
-    setLiked(checkliked(blogslug));
-  }, [blogslug]);
+  // useEffect(() => {
+  //   setLiked(checkliked(blogslug));
+  // }, [blogslug]);
 
-  const addliked = async (blogslug: string) => {
-    const cookies = parseCookies();
-    const likedblogs = cookies.likedblogs;
-    if (likedblogs) {
-      const likedblogsarray = likedblogs.split(",");
-      if (likedblogsarray.includes(blogslug)) {
-        const newlikedblogs = likedblogsarray.filter(
-          (blog) => blog !== blogslug
-        );
-        setCookie(null, "likedblogs", newlikedblogs.join(","), {
-          maxAge: 30 * 24 * 60 * 60,
-          path: "/",
-        });
-        const updatedb = await fetch(`/api/blogs/${category}/${blogslug}/like`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            newlikecount: likes - 1,
-          }),
-        });
-        console.log(updatedb);
-      } else {
-        setCookie(null, "likedblogs", likedblogs + "," + blogslug, {
-          maxAge: 30 * 24 * 60 * 60,
-          path: "/",
-        });
-        const updatedb = await fetch(`/api/blogs/${category}/${blogslug}/like`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            newlikecount: likes + 1,
-          }),
-        });
-        console.log(updatedb);
+  // const addliked = async (blogslug: string) => {
+  //   const cookies = parseCookies();
+  //   const likedblogs = cookies.likedblogs;
+  //   if (likedblogs) {
+  //     const likedblogsarray = likedblogs.split(",");
+  //     if (likedblogsarray.includes(blogslug)) {
+  //       const newlikedblogs = likedblogsarray.filter(
+  //         (blog) => blog !== blogslug
+  //       );
+  //       setCookie(null, "likedblogs", newlikedblogs.join(","), {
+  //         maxAge: 30 * 24 * 60 * 60,
+  //         path: "/",
+  //       });
+  //       const updatedb = await fetch(`/api/blogs/${category}/${blogslug}/like`, {
+  //         method: "PUT",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify({
+  //           newlikecount: likes - 1,
+  //         }),
+  //       });
 
-      }
-    } else {
-      setCookie(null, "likedblogs", blogslug, {
-        maxAge: 30 * 24 * 60 * 60,
-        path: "/",
-      });
-      const updatedb = await fetch(`/api/blogs/${category}/${blogslug}/like`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          newlikecount: likes + 1,
-        }),
-      });
-        console.log(updatedb);
+  //       setNewlikes(likes-1)
+  //     } else {
+  //       setCookie(null, "likedblogs", likedblogs + "," + blogslug, {
+  //         maxAge: 30 * 24 * 60 * 60,
+  //         path: "/",
+  //       });
+  //       const updatedb = await fetch(`/api/blogs/${category}/${blogslug}/like`, {
+  //         method: "PUT",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify({
+  //           newlikecount: likes + 1,
+  //         }),
+  //       });
+  //       setNewlikes(likes+1)
 
-    }
-  };
+  //     }
+  //   } else {
+  //     setCookie(null, "likedblogs", blogslug, {
+  //       maxAge: 30 * 24 * 60 * 60,
+  //       path: "/",
+  //     });
+  //     const updatedb = await fetch(`/api/blogs/${category}/${blogslug}/like`, {
+  //       method: "PUT",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         newlikecount: likes + 1,
+  //       }),
+  //     });
+  //     setNewlikes(likes+1)
+
+  //   }
+  // };
 
   return (
     <div className={styles.blogcard}>
@@ -138,10 +140,12 @@ const Blogcard = ({
             <div className={styles.stat + " " + styles.heart}>
               <span
                 onClick={() => {
-                  addliked(blogslug);
+                  // addliked(blogslug);
+                  // setLiked(!liked);
                 }}
               >
-                {liked ? <BsSuitHeartFill /> : <BsSuitHeart />}
+                {/* {liked ? <BsSuitHeartFill /> : <BsSuitHeart />} */}
+                <BsSuitHeart />
               </span>
               <span>{likes}</span>
             </div>
