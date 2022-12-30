@@ -52,7 +52,7 @@ const Blogcard = ({
     setLiked(checkliked(blogslug));
   }, [blogslug]);
 
-  const addliked = (blogslug: string) => {
+  const addliked = async (blogslug: string) => {
     const cookies = parseCookies();
     const likedblogs = cookies.likedblogs;
     if (likedblogs) {
@@ -65,7 +65,7 @@ const Blogcard = ({
           maxAge: 30 * 24 * 60 * 60,
           path: "/",
         });
-        const updatedb = fetch(`/api/blogs/${category}/${blogslug}/like`, {
+        const updatedb = await fetch(`/api/blogs/${category}/${blogslug}/like`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -74,12 +74,13 @@ const Blogcard = ({
             newlikecount: likes - 1,
           }),
         });
+        console.log(updatedb);
       } else {
         setCookie(null, "likedblogs", likedblogs + "," + blogslug, {
           maxAge: 30 * 24 * 60 * 60,
           path: "/",
         });
-        const updatedb = fetch(`/api/blogs/${category}/${blogslug}/like`, {
+        const updatedb = await fetch(`/api/blogs/${category}/${blogslug}/like`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -88,13 +89,15 @@ const Blogcard = ({
             newlikecount: likes + 1,
           }),
         });
+        console.log(updatedb);
+
       }
     } else {
       setCookie(null, "likedblogs", blogslug, {
         maxAge: 30 * 24 * 60 * 60,
         path: "/",
       });
-      const updatedb = fetch(`/api/blogs/${category}/${blogslug}/like`, {
+      const updatedb = await fetch(`/api/blogs/${category}/${blogslug}/like`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -103,6 +106,8 @@ const Blogcard = ({
           newlikecount: likes + 1,
         }),
       });
+        console.log(updatedb);
+
     }
   };
 

@@ -16,7 +16,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
   if (req.method === "PUT") {
     const { newlikecount } = req.body;
-    if (!newlikecount || newlikecount.trim() === "") {
+    if (!newlikecount || isNaN(newlikecount) ) {
       res.status(422).json({ message: "Invalid input." });
       return;
     }
