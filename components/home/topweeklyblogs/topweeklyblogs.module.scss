@@ -1,3 +1,6 @@
+$small: 480px;
+$medium: 1024px;
+
 .imagediv {
   display: flex;
   justify-content: flex-end;
@@ -10,9 +13,18 @@
   overflow: hidden;
   font-family: Inter;
 
+  @media screen and (max-width: $medium) {
+    height: 50vh;
+  }
+
+
+
   .content {
     z-index: 100;
     margin: 3rem;
+    @media screen and (max-width: $medium) {
+      margin:1rem;
+    }
     p {
       text-transform: uppercase;
       letter-spacing: 1.6px;
