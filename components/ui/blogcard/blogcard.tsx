@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./blogcard.module.scss";
 import Image from "next/image";
 import { IoStatsChart } from "react-icons/io5";
-import { BsSuitHeart } from "react-icons/bs";
+import { BsSuitHeart, BsSuitHeartFill } from "react-icons/bs";
 import { FaShare } from "react-icons/fa";
 import moment from "moment";
 import Link from "next/link";
+import { parseCookies, setCookie, destroyCookie } from "nookies";
 
 const Blogcard = ({
   image,
@@ -32,6 +33,79 @@ const Blogcard = ({
     const time = moment(new Date(createdAt * 1000)).from(new Date());
     return time;
   };
+
+  const [liked, setLiked] = useState<boolean>(false);
+
+  const checkliked = (blogslug: string) => {
+    const cookies = parseCookies();
+    const likedblogs = cookies.likedblogs;
+    if (likedblogs) {
+      const likedblogsarray = likedblogs.split(",");
+      if (likedblogsarray.includes(blogslug)) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  useEffect(() => {
+    setLiked(checkliked(blogslug));
+  }, [blogslug]);
+
+  const addliked = (blogslug: string) => {
+    const cookies = parseCookies();
+    const likedblogs = cookies.likedblogs;
+    if (likedblogs) {
+      const likedblogsarray = likedblogs.split(",");
+      if (likedblogsarray.includes(blogslug)) {
+        const newlikedblogs = likedblogsarray.filter(
+          (blog) => blog !== blogslug
+        );
+        setCookie(null, "likedblogs", newlikedblogs.join(","), {
+          maxAge: 30 * 24 * 60 * 60,
+          path: "/",
+        });
+        const updatedb = fetch(`/api/blogs/${category}/${blogslug}/like`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            newlikecount: likes - 1,
+          }),
+        });
+      } else {
+        setCookie(null, "likedblogs", likedblogs + "," + blogslug, {
+          maxAge: 30 * 24 * 60 * 60,
+          path: "/",
+        });
+        const updatedb = fetch(`/api/blogs/${category}/${blogslug}/like`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            newlikecount: likes + 1,
+          }),
+        });
+      }
+    } else {
+      setCookie(null, "likedblogs", blogslug, {
+        maxAge: 30 * 24 * 60 * 60,
+        path: "/",
+      });
+      const updatedb = fetch(`/api/blogs/${category}/${blogslug}/like`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          newlikecount: likes + 1,
+        }),
+      });
+    }
+  };
+
   return (
     <div className={styles.blogcard}>
       <div className={styles.blogimage}>
@@ -56,8 +130,14 @@ const Blogcard = ({
               <IoStatsChart />
               <span>{views}</span>
             </div>
-            <div className={styles.stat}>
-              <BsSuitHeart />
+            <div className={styles.stat + " " + styles.heart}>
+              <span
+                onClick={() => {
+                  addliked(blogslug);
+                }}
+              >
+                {liked ? <BsSuitHeartFill /> : <BsSuitHeart />}
+              </span>
               <span>{likes}</span>
             </div>
           </div>

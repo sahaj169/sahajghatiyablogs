@@ -9,7 +9,7 @@ const PositiveThoughts = ({ positivethoughts }: any) => {
     <div className={styles.imagediv} key={positiveThought._id}>
       <Image
         src={positiveThought.image}
-        alt={positiveThought.title}
+        alt={positiveThought._id}
         fill
         sizes="100%"
       />

@@ -32,6 +32,7 @@
       height: 25vw;
       width: 100%;
       overflow: hidden;
+      position:relative;
       img {
         object-fit: cover;
       }
@@ -74,6 +75,16 @@
       }
       .stats {
         display: flex;
+
+        .heart {
+          color: #E84A43;
+
+          span{
+            fill:#E84A43;
+          }
+          
+        }
+
         .stat {
           margin-right: 2rem;
           font-size: 1.2rem;
