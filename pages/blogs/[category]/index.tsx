@@ -20,11 +20,17 @@ export default function Category(props: any) {
 export const getStaticProps: GetStaticProps = async (context) => {
   const category = context.params?.category as string;
   const categoryBlogs = await GetBlogsByCategory(category);
+
+  if (!categoryBlogs.length) {
+    return {
+      notFound: true,
+    };
+  }
   return {
     props: {
       categoryBlogs,
     },
-    
+
     revalidate: 6000,
   };
 };
@@ -32,6 +38,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
 export function getStaticPaths() {
   return {
     paths: ["/blogs/lifestyle", "/blogs/family", "/blogs/food"],
-    fallback: "blocking",
+    fallback: false,
   };
 }
