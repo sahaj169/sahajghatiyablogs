@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import Head from "next/head";
-import styles from "../../styles/Home.module.scss";
 import { GetStaticProps } from "next";
 import { GetAllBlogs } from "../../utils/api";
 import AllBlogs from "../../components/blogs/allblogs/allblogs";

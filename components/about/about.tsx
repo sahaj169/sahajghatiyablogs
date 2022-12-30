@@ -1,5 +1,5 @@
 import React, { Fragment, useRef } from "react";
-import Heading from "../../ui/heading/heading";
+import Heading from "../ui/heading/heading";
 import styles from "./about.module.scss";
 import Sahaj from "./Sahaj.jpg";
 import Image from "next/image";
